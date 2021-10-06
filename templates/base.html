@@ -12,6 +12,7 @@
     注：改教程运行有错误，须加上下面的load，但是我也不知道是为什么，
     因为我刚开始接触，日后再盘点 -->
     {% load static %}  
+    {% load blog_extras %}
 
     <!-- css -->
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -24,6 +25,40 @@
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'blog/js/pace.min.js' %}"></script>
     <script src="{% static 'blog/js/modernizr.custom.js' %}"></script>
+    
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.8/styles/github.min.css" rel="stylesheet">
+
+    <style>
+        .codehilite {
+        padding: 0;
+        }
+
+        /* for block of numbers */
+        .hljs-ln-numbers {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        text-align: center;
+        color: #ccc;
+        border-right: 1px solid #CCC;
+        vertical-align: top;
+        padding-right: 5px;
+        }
+
+        .hljs-ln-n {
+        width: 30px;
+        }
+
+        /* for block of code */
+        .hljs-ln .hljs-ln-code {
+        padding-left: 10px;
+        white-space: pre;
+        }
+    </style>
 
 </head>
 
@@ -81,6 +116,15 @@
             <aside class="col-md-4">
                 {% block toc %}
                 {% endblock toc %}
+              
+                {% show_recent_posts %}
+                {% show_archives %}
+                {% show_categories %}
+                {% show_tags %}
+              
+                <div class="rss">
+                   <a href=""><span class="ion-social-rss-outline"></span> RSS 订阅</a>
+                </div>
             </aside>
 
         </div>
@@ -113,7 +157,12 @@
 </div>
 
 <script src="{% static 'blog/js/script.js' %}"></script>
-
+<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+</script>
 
 </body>
 </html>
