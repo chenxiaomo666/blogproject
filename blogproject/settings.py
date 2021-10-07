@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['112.124.4.178']
 
 INSTALLED_APPS = [
     'blog.apps.BlogConfig',
+    'comments.apps.CommentsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
