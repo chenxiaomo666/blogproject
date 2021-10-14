@@ -56,3 +56,7 @@ def detail(request, pk):
                                   ])
     return render(request, 'blog/detail.html', context={'post': post})
 ```
+
+## 复制粘贴图片
+
+
