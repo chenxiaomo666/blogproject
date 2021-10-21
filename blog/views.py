@@ -14,11 +14,7 @@ def index(request):
     article_num = 10   # 每页展示的博客数目
 
     # 分页
-    try:
-        # page = request.GET.get('page', 1)
-        page = request.GET.get('page')
-    except PageNotAnInteger:
-        page = 1
+    page = request.GET.get('page', 1)
     p = Paginator(post_list, article_num, request=request)  
     post_list = p.page(page)
 
