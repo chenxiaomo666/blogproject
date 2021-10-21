@@ -4,10 +4,24 @@ import markdown
 import re
 from django.utils.text import slugify
 from markdown.extensions.toc import TocExtension
+from pure_pagination import PageNotAnInteger, Paginator
 
 
 def index(request):
     post_list = Post.objects.all().order_by('-created_time')
+    # 这个地方后续优化要改一下
+
+    article_num = 10   # 每页展示的博客数目
+
+    # 分页
+    try:
+        # page = request.GET.get('page', 1)
+        page = request.GET.get('page')
+    except PageNotAnInteger:
+        page = 1
+    p = Paginator(post_list, article_num, request=request)  
+    post_list = p.page(page)
+
     return render(request, 'blog/index.html', context={
         'post_list': post_list
     })
