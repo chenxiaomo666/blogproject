@@ -1,62 +1,11 @@
+### 前言
+之前用的zblog写博客，那个不太稳定，总坏，而且由于我对php不是很熟悉，所以不能对博客做二次开发，只能用别人写好的插件，身为一个程序员，未免有些不妥当，再者就是对python比较熟悉，加上之前写过一段时间的flask，所以就选django作为框架开发了这个博客，说是开发不太准确，毕竟这个博客无论是前端还是后端，都是别人的（见[链接](https://www.zmrenwu.com/courses/hellodjango-blog-tutorial/)）,不断完善博客的过程，也就是学习django的过程，虽然现在做大数据开发用不到django，但聊胜于无，以后总会用到的。
 
-之前博客崩辽，想着扩展和开发也都不简单，不如干脆自己写一个，
-正好明天就十一假期，趁这个假期看看能不能开发完成  --> 假期没有完成~
+### 已完成功能
+基本文章、标签、分类的增删改，以及总崩的前端
 
--V
-Python==3.6.4
-django==2.2.3
+### 目前正在开发的
+文章全文搜索
 
-# 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-
-#### 无序列表
-* 1
-* 2
-* 3
-
-#### 有序列表
-1. 1
-2. 2
-3. 3
-
-> 这里是引用的一段话
-
-要注意符号和文本之间的空格
-
-#### 插入链接
-[陈小陌博客](http://www.mylwx.cn)
-
-
-
-#### 插入图片
-![图片](https://cdn.sspai.com/attachment/origin/2014/04/15/69495.jpg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1)
-
-#### 粗体和斜体
-**这是粗体**
-*这是斜体*
-
-#### 代码块
-``` python
-for i in range(6):
-        print(666)
-```
-
-#### 另一个代码块
-
-``` python
-def detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    post.body = markdown.markdown(post.body,
-                                  extensions=[
-                                      'markdown.extensions.extra',
-                                      'markdown.extensions.codehilite',
-                                      'markdown.extensions.toc',
-                                  ])
-    return render(request, 'blog/detail.html', context={'post': post})
-```
-
-## 复制粘贴图片
-
-
+### 待开发功能
+还不确定
