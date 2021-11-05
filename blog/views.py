@@ -8,6 +8,7 @@ from pure_pagination import PageNotAnInteger, Paginator
 from django.contrib import messages
 from django.db.models import Q
 from django.shortcuts import redirect
+from .service.tools import serach_key
 
 def index(request):
     post_list = Post.objects.all().order_by('-created_time')
@@ -72,6 +73,15 @@ def search(request):
         messages.add_message(request, messages.ERROR, error_msg, extra_tags='danger')
         return redirect('blog:index')
 
-    post_list = Post.objects.filter(Q(title__icontains=q) | Q(body__icontains=q))
-    return render(request, 'blog/index.html', {'post_list': post_list})
+    post_list = serach_key(q)
+    # print(len(post_list))
+    # print([x.title for x in post_list])
+    # return render(request, 'blog/index.html', {'post_list': post_list})
+
+    return render(request, 'blog/index.html', context={
+        'post_list': post_list
+    })
+
+
+
 
